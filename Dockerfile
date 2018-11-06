@@ -54,7 +54,7 @@ RUN echo y | android-sdk-linux/tools/android --silent update sdk --no-ui --all -
   # && echo y | android-sdk-linux/tools/bin/sdkmanager --package_file=package_file
 
 # Install all updates
-(while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk -u
+RUN (while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk -u
 
 #####################
 #  Install node.js  #
