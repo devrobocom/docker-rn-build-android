@@ -20,7 +20,7 @@ RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure \
   && mkdir -p /var/run/sshd
 
 # Gradle
-ENV GRADLE_VERSION 4.6
+ENV GRADLE_VERSION 3.2.1
 ENV GRADLE_SDK_URL https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip
 RUN curl -sSL "${GRADLE_SDK_URL}" -o gradle-${GRADLE_VERSION}-bin.zip  \
   && unzip gradle-${GRADLE_VERSION}-bin.zip -d ${SDK_HOME}  \
@@ -52,6 +52,9 @@ RUN echo y | android-sdk-linux/tools/android --silent update sdk --no-ui --all -
   && echo y | android-sdk-linux/tools/android --silent update sdk --no-ui --all --filter extra-google-google_play_services \
   && echo y | android-sdk-linux/tools/android --silent update sdk --no-ui --all --filter extra-google-m2repository
   # && echo y | android-sdk-linux/tools/bin/sdkmanager --package_file=package_file
+
+# Install all updates
+(while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk -u
 
 #####################
 #  Install node.js  #
