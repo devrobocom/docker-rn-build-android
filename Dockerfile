@@ -30,7 +30,7 @@ ENV PATH ${GRADLE_HOME}/bin:$PATH
 
 # android sdk|build-tools|image
 ENV ANDROID_TARGET_SDK="android-27,android-28" \
-  ANDROID_BUILD_TOOLS="build-tools-28.0.2 build-tools-28.0.3" \
+  ANDROID_BUILD_TOOLS="build-tools-28.0.2,build-tools-28.0.3" \
   ANDROID_SDK_TOOLS="25.2.3" \
   ANDROID_HOME=${SDK_HOME}/android-sdk-linux \
   PATH=${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:$PATH:${ANDROID_HOME}/cmake/bin
